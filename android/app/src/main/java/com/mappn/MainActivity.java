@@ -22,7 +22,7 @@ public class MainActivity extends ReactActivity {
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
-    SplashScreen.show(this,true);  // here
+    SplashScreen.show(this);  // here
     super.onCreate(savedInstanceState);
 
   }

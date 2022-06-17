@@ -5,17 +5,20 @@ import { useSelector } from "react-redux";
 import { fontFamily, fontSize, icons, images } from "../../assets";
 import TopNavigation from "../../common/component/TopNavigation";
 import { colors } from "../../styles/colors";
+import { nullProfile } from "../../utils/constant";
 function ProfileScreen({ navigation }) {
-  const { userName, fullName } = useSelector((state) => state.authSlice);
-  console.log("Respponse --" + JSON.stringify(userName));
+  const { userName, fullName, profile_photo,profile_created } = useSelector((state) => state.authSlice);
+  console.log("Respponse --" + JSON.stringify(profile_photo));
   const onPressSettings = () => {
     navigation.navigate("ProfileSettings");
   };
   return (
     <SafeAreaView style={styles.container}>
-      <TopNavigation isHomeTab={true} navigation={navigation} />
+      <TopNavigation  title={'ARKIVE'} isHomeTab={true} navigation={navigation} />
       <View style={styles.userInfoContainer}>
-        <Image source={images.staticProfile} style={styles.profileImage} />
+
+        <Image source={profile_photo == null || profile_photo == nullProfile ? images.profilePlaceholder : { uri: profile_photo }} style={styles.profileImage} />
+
         <Text style={styles.userName}>{fullName}</Text>
         <Text style={styles.userId}>{userName}</Text>
         <TouchableWithoutFeedback onPress={onPressSettings}>
@@ -26,7 +29,7 @@ function ProfileScreen({ navigation }) {
         </TouchableWithoutFeedback>
       </View>
       <View style={styles.appInfoContainer}>
-        <Text style={styles.appInfoText}>{`“apper” since May 2022`}</Text>
+        <Text style={styles.appInfoText}>{`Arkiver since `+profile_created}</Text>
       </View>
     </SafeAreaView>
   );
@@ -47,7 +50,9 @@ const styles = StyleSheet.create({
   profileImage: {
     height: hp(16),
     width: hp(16),
-    resizeMode: "contain",
+    borderRadius: 150 / 2,
+    overflow: "hidden",
+    resizeMode: "cover",
   },
   userName: {
     marginTop: hp(2.5),
@@ -74,11 +79,11 @@ const styles = StyleSheet.create({
   btnContainer: {
     flexDirection: "row",
     backgroundColor: colors.shark,
-    paddingHorizontal: hp(3),
-    paddingVertical: hp(1.5),
+    paddingHorizontal: hp(2.5),
+    paddingVertical: hp(1),
     borderRadius: hp(1.5),
     alignItems: "center",
-    marginTop: hp(3.5),
+    marginTop: 18,
   },
   btnText: {
     color: colors.white,

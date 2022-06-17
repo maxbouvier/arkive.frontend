@@ -18,6 +18,8 @@ target 'Mappn' do
   pod 'Permission-Contacts', :path => "#{permissions_path}/Contacts"
   pod 'Permission-Notifications', :path => "#{permissions_path}/Notifications"
   
+
+
   target 'MappnTests' do
     inherit! :complete
     # Pods for testing

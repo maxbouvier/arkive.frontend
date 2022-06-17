@@ -1,18 +1,18 @@
 import React from "react"
 import { StyleSheet, Text, View, Pressable, Image } from "react-native"
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen'
-
 import { colors } from "../../styles/colors"
-import { fontFamily, fontSize, icons } from "../../assets"
+import { fontFamily, fontSize, icons, images } from "../../assets"
+import { nullProfile } from "../../utils/constant"
 
 const CommonUserSelection = props => {
     const { item, onPress } = props
-    const { name, username, isSelected } = item
+    const { full_name, username, isSelected, profile_photo } = item
     return (
         <Pressable style={styles.container} onPress={onPress} >
-            <Image source={icons.defaultUserProfile} style={styles.image} />
+            <Image source={(profile_photo == null || profile_photo == nullProfile) ? images.profilePlaceholder : { uri: profile_photo }} style={styles.image} />
             <View style={{ flex: 1 }}>
-                <Text style={styles.title}>{name}</Text>
+                <Text style={styles.title}>{full_name}</Text>
                 <Text style={styles.subTitle}>{username}</Text>
             </View>
             <Image
@@ -29,12 +29,10 @@ const styles = StyleSheet.create({
     container: {
         flexDirection: "row",
         alignItems: "center",
-        marginBottom: hp(4),
+        marginBottom: hp(3),
     },
     image: {
-        resizeMode: "contain",
-        height: hp(8),
-        width: hp(8),
+        height: 48, width: 48, overflow: 'hidden', borderRadius: 150 / 2
     },
     title: {
         color: colors.white,

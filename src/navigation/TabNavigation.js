@@ -22,8 +22,9 @@ const TabConfig = ({ route }) => {
     tabBarShowLabel: false,
     tabBarStyle: [
       {
-        height: hp(10) + insets.bottom,
+        height: hp(6) + insets.bottom,
         alignItems: "center",
+        // backgroundColor:'red',
         borderTopWidth: 0,
         backgroundColor: colors.black,
       },
@@ -53,7 +54,7 @@ const TabConfig = ({ route }) => {
 
 export default function TabNavigation() {
   return (
-    <Tab.Navigator screenOptions={TabConfig} initialRouteName="HomeStack">
+    <Tab.Navigator screenOptions={TabConfig} initialRouteName="CameraScreen">
       <Tab.Screen name="HomeStack" component={HomeStack} />
       <Tab.Screen name="CameraScreen" component={CameraScreen} />
       <Tab.Screen name="ProfileScreen" component={ProfileScreen} />

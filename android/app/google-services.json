@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "839938478359",
+    "project_id": "mappn-342317",
+    "storage_bucket": "mappn-342317.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:839938478359:android:958851a4c7f858d7632752",
+        "android_client_info": {
+          "package_name": "com.Arkive.package"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "839938478359-3bkoiggsl8mibmt4b9ljedphnmqt0cgv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBjIGrBLUK10Jx4K2kH6ZLnoPCrtRBTOKo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "839938478359-3bkoiggsl8mibmt4b9ljedphnmqt0cgv.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "839938478359-8cbvcg8c7i5s9ed1skfkhk7lpip948in.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.app.arkive"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -11,8 +11,9 @@ export const colors = {
   transparentBlack: "0A0A0ACC",
   gray: "#B0B0B5",
   orange: "#FF9333",
-  
   liteWhite: "rgba(210, 210, 210, 0.75)",
   darkWhite: "rgba(210, 210,210, 0.2)",
   modalBg: "rgba(60, 60,60, 0.4)",
+  blueoverlay:"#6EA2C8",
+
 };

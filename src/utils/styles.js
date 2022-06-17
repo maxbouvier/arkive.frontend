@@ -14,7 +14,6 @@ const commonStyles = StyleSheet.create({
         height: hp(2.5),
         width: hp(2.5),
         resizeMode: 'contain',
-        padding: hp(1.2)
     }
 })
 

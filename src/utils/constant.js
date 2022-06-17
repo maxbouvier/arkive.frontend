@@ -1,7 +1,7 @@
 import { dummyImages, icons } from "../assets";
 
 export const CONST = {
-  hitSlop: { top: 25, left: 25, bottom: 25, right: 25 },
+  hitSlop: { top: 20, left: 20, bottom: 20, right: 20 },
 };
 
 const commonMemberArray = [
@@ -34,7 +34,7 @@ const commonMemberArray = [
 export const data = {
   albumList: [
     { id: 1, name: "My Memories", image: icons.lock },
-    // { id: 2, name: "Expat Party", image: icons.people },
+    { id: 2, name: "Expat Party", image: icons.people },
   ],
   recentAlbumList: [
     {
@@ -78,3 +78,4 @@ export const data = {
     },
   ],
 };
+export const nullProfile = "https://d1fidn6762cysx.cloudfront.net/public/profile/null"

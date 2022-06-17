@@ -7,8 +7,8 @@ const icons = {
   home: require("./icons/tab/home.png"),
   closeModal: require("./icons/common/small-close-button.png"),
   search: require("./icons/common/search.png"),
-  cameraFlashOn: require("./icons/common/camera-flash.png"),
-  cameraFlashOff: require("./icons/common/flash.png"),
+  cameraFlashOn: require("./icons/common/flash.png"),
+  cameraFlashOff: require("./icons/common/flash_off.png"),
   cameraClick: require("./icons/common/take-photo.png"),
   // camera: require("./icons/permissions/camera.png"),
   notifications: require("./icons/permissions/notification.png"),
@@ -26,8 +26,10 @@ const icons = {
   defaultUserProfile: require('./icons/common/default-profile.png'),
   horizontalOptions: require('./icons/common/horizontal-options.png'),
   share: require('./icons/common/share.png'),
-  down_arrow:require('./icons/common/down_arrow.png'),
-  requested_icon:require('./icons/common/requested_icon.png')
+  down_arrow: require('./icons/common/down_arrow.png'),
+  requested_icon: require('./icons/common/requested_icon.png'),
+  add_photo: require('./icons/common/add_photo.png'),
+  notified_icon: require('./icons/common/notified_emoji.png')
 };
 const touchArea = {
   top: 20,
@@ -48,8 +50,8 @@ const images = {
   cancel: require("./images/cancel.png"),
   editname: require("./images/editname.png"),
   add: require("./images/add.png"),
-  splashBg:require("./images/splash_bg.png"),
-  imageGridBg:require("./images/imageGridBg.png")
+  splashBg: require("./images/splash_bg.png"),
+  imageGridBg: require("./images/imageGridBg.png")
 };
 
 const dummyImages = {

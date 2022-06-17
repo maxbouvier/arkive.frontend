@@ -18,4 +18,7 @@ module.exports = {
     /* resolver options */
     sourceExts: ['jsx','js', 'json', 'ts', 'tsx']
   },
+  // server: {
+  //   port: 8083,
+  // },
 };

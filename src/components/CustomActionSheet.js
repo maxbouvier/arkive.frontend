@@ -8,7 +8,14 @@ import ThemeButton from '../common/component/ThemeButton'
 
 const CustomActionSheet = ({ isVisible, isMultipleOptions, title, onPressTitle, onPressSubTitle, secondTitle, onPressCancel, bottomSheetContainerStyle }) => {
     return (
-        <Modal transparent={true} visible={isVisible} animationType="slide"  >
+        <Modal
+            // onRequestClose={() => {
+            //     props.isSingleBtn
+            //       ? props.handleOkClick()
+            //       : props.handleCancelClick("no");
+            //   }}
+            transparent={true}
+            visible={isVisible} animationType="fade">
             <View style={styles.modalView}>
                 <View style={[styles.bottomSheetContainer, bottomSheetContainerStyle]}>
                     <View style={{ flexDirection: 'column-reverse', flex: 1 }}>
@@ -32,7 +39,7 @@ const styles = StyleSheet.create({
     modalView: {
         flex: 1,
         flexDirection: 'column-reverse',
-        // backgroundColor: colors.modalBg,
+        backgroundColor:colors.modalBg,
     },
     bottomSheetContainer: {
         flex: 0.3,

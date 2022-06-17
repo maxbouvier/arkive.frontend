@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, Image, Dimensions, TouchableOpacity, TouchableWithoutFeedback, StyleSheet } from "react-native";
+import { View, Text, Image, Dimensions, TouchableWithoutFeedback, StyleSheet, Pressable } from "react-native";
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import { fontFamily, fontSize, icons, images } from "../../assets";
 import { colors } from "../../styles/colors";
@@ -8,17 +8,17 @@ import { CONST } from "../../utils/constant";
 
 function TopNavigation({ isHomeTab, title, navigation, position }) {
   return isHomeTab ? (
-    <HomeTopBar navigation={navigation} />
+    <HomeTopBar navigation={navigation} title={title} />
   ) : (
     <SettingTopBar title={title} navigation={navigation} position={position} />
   );
 }
-const HomeTopBar = ({ navigation }) => {
+const HomeTopBar = ({ navigation, title }) => {
   const styles = StyleSheet.create({
     rootView: {
       height: hp(6),
       marginHorizontal: hp(3),
-      marginTop: hp(2),
+      // marginTop: hp(2),
       flexDirection: "row",
       alignItems: "center",
       justifyContent: "space-between",
@@ -37,11 +37,11 @@ const HomeTopBar = ({ navigation }) => {
   });
   return (
     <View style={styles.rootView}>
-      <Text style={styles.appNameTxt}>MAPPN</Text>
+      <Text style={styles.appNameTxt}>{title}</Text>
       <View style={{ flexDirection: "row", alignItems: "center" }}>
         <TouchableWithoutFeedback hitSlop={CONST.hitSlop}
           onPress={() => {
-            navigation.navigate('CreateNewAlbum', { type: 'home' })
+            navigation.navigate('CreateNewAlbum', { type: 'home' });
           }}
         >
           <Image
@@ -66,15 +66,16 @@ const SettingTopBar = ({ title, navigation, position }) => {
     rootView: {
       height: hp(6),
       marginHorizontal: hp(1),
-      marginTop: hp(3),
+      // marginTop: hp(3),
       flexDirection: "row",
       // position: position,
       alignItems: "center",
     },
     backImage: {
-      marginLeft: hp(2),
-      height: hp(4),
-      width: hp(4),
+      marginLeft: 22,
+      resizeMode: "contain",
+      height: 18,
+      width: 18,
       // backgroundColor:'red',
     },
     titleTxt: {
@@ -89,10 +90,10 @@ const SettingTopBar = ({ title, navigation, position }) => {
   });
   return (
     <View style={styles.rootView}>
-      <TouchableOpacity onPress={()=>{navigation.goBack()}}>
-        <Image style={styles.backImage} source={images.backArrow} />
-      </TouchableOpacity>
       <Text style={styles.titleTxt}>{title}</Text>
+      <Pressable onPress={() => { navigation.goBack() }} hitSlop={CONST.hitSlop} >
+        <Image style={styles.backImage} source={icons.close} />
+      </Pressable>
     </View>
   );
 };

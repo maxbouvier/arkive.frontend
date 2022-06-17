@@ -10,22 +10,21 @@ import CustomNavigationHeader from "../common/component/CustomNavigationHeader";
 const CustomModalView = (props) => {
 
   //Component Properties
-  const { children, name, onPressClose, onPressBack, onPressDone, isFullScreen } = props;
+  const { children, name,backgroundColor, onPressClose,isDoneDisabled, onPressBack, onPressDone, isFullScreen } = props;
 
   //Common Style
   const commonContainer = {
     flex: 1,
-    backgroundColor: colors.shark,
-    paddingTop: hp(4),
-    paddingHorizontal: hp(4),
-    paddingBottom: hp(2),
+    backgroundColor: backgroundColor,
+    paddingHorizontal: hp(3.5),
+    paddingTop:16
   }
 
   //Styles
   const styles = StyleSheet.create({
     container: {
       flex: 1,
-      marginTop: isFullScreen ? 0 : hp(8),
+      marginTop: isFullScreen ? 0 : hp(9),
     },
     subContainer: {
       ...commonContainer,
@@ -42,6 +41,7 @@ const CustomModalView = (props) => {
       <View style={isFullScreen ? styles.subFullScreenContainer : styles.subContainer}>
         <CustomNavigationHeader
           name={name}
+          isDoneDisabled={isDoneDisabled}
           onPressClose={onPressClose}
           onPressBack={onPressBack}
           onPressDone={onPressDone}

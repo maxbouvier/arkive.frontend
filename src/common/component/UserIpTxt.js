@@ -9,7 +9,8 @@ function UserIpTxt({
   keyboardType,
   customStyle,
   onChangeText,
-  isSelectedBg
+  isSelectedBg,
+  returnKeyType
 }) {
   const [focus, setFocus] = useState(false);
   const styles = StyleSheet.create({
@@ -41,6 +42,8 @@ function UserIpTxt({
       onChangeText={onChangeText}
       onBlur={() => (isSelectedBg? setFocus(true) : setFocus(false))}
       value={value}
+      maxLength={30}
+      returnKeyType={returnKeyType}
       selectionColor={colors.primary}
       placeholderTextColor={colors.shuttleGray}
       keyboardType={keyboardType}

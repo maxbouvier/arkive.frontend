@@ -6,7 +6,7 @@ import { colors } from "../../styles/colors";
 import { fontFamily, fontSize, icons } from "../../assets";
 import { commonStyles } from "../../utils/styles";
 
-const CustomTextInput = ({ title, value, placeholder, containerStyle, withIcon }) => {
+function CustomTextInput({ title, value, onChangeText,placeholder, containerStyle, withIcon }) {
 
   const styles = StyleSheet.create({
     container: {
@@ -32,7 +32,10 @@ const CustomTextInput = ({ title, value, placeholder, containerStyle, withIcon }
         <TextInput
           style={styles.textInputStyle}
           value={value}
+          onChangeText={onChangeText}
+          keyboardAppearance="dark"
           placeholder={placeholder}
+          maxLength={30}
           placeholderTextColor={colors.gray}
           selectionColor={colors.white}
         />

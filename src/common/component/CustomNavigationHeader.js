@@ -2,7 +2,7 @@ import { StyleSheet, Text, View, Pressable, Image } from 'react-native'
 import React from 'react'
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import { colors } from '../../styles/colors';
-import { fontFamily, fontSize, icons } from '../../assets';
+import { fontFamily, fontSize, icons, images } from '../../assets';
 import { CONST } from '../../utils/constant';
 
 const CustomNavigationHeader = (props) => {
@@ -11,7 +11,7 @@ const CustomNavigationHeader = (props) => {
     const { name, onPressClose, onPressBack, onPressDone, isDoneDisabled } = props;
 
     //Conditional Rendering
-    const leftIcon = onPressClose != undefined ? icons.close : icons.back
+    const leftIcon = icons.close
     const leftIconAction = onPressClose != undefined ? onPressClose : onPressBack
     const doneButtonColor = isDoneDisabled ? colors.shuttleGray : colors.primary
 
@@ -19,8 +19,6 @@ const CustomNavigationHeader = (props) => {
         headerOptionsContainer: {
             flexDirection: "row",
             alignItems: "center",
-            backgroundColor:'red',
-            justifyContent: "space-between",
         },
         closeBtn: {
             resizeMode: "contain",
@@ -33,6 +31,9 @@ const CustomNavigationHeader = (props) => {
             fontFamily: fontFamily.bold,
         },
         btnText: {
+            width: 50,
+            alignSelf: 'center',
+            textAlign: "center",
             color: doneButtonColor,
             fontSize: fontSize.fs16,
             fontFamily: fontFamily.bold,
@@ -40,18 +41,17 @@ const CustomNavigationHeader = (props) => {
     })
 
     return (
-        <View style={styles.headerOptionsContainer}>
+        <View style={{ flexDirection: 'row', alignItems: 'center' }}>
             <Pressable onPress={leftIconAction} hitSlop={CONST.hitSlop} >
                 <Image source={leftIcon} style={styles.closeBtn} />
             </Pressable>
-            <Text style={styles.modalName}>{name}</Text>
-            {onPressDone ? (
-                <Pressable onPress={onPressDone} disabled={isDoneDisabled}>
-                    <Text style={styles.btnText}>Done</Text>
-                </Pressable>
-            ) : (
-                <View />
-            )}
+            <Text style={{ color: colors.white, textAlign: 'center', flex: 1, fontFamily: fontFamily.bold, fontSize: fontSize.fs18, marginLeft: wp(6) }}>{name}</Text>
+            {/* {onPressDone ? ( */}
+            <Pressable onPress={onPressDone} disabled={isDoneDisabled}>
+                <Text style={styles.btnText}>{onPressDone ? "Done" : ""}</Text>
+            </Pressable>
+            {/* )  */}
+            {/* // : <View  style={{height:hp(2),width:(2)}}/>} */}
         </View>
     )
 }

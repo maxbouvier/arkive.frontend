@@ -1,15 +1,26 @@
 import React from "react";
-import { View, Text, StyleSheet, SafeAreaView } from "react-native";
-import { fontFamily, fontSize } from "../../assets";
+import { View, Text, StyleSheet, SafeAreaView, Pressable, Image } from "react-native";
+import { fontFamily, fontSize, icons, images } from "../../assets";
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen'
 import { colors } from "../../styles/colors";
-function AuthTitleTxt({ title, subTitle,customStyle,children }) {
+import TopNavigation from "./TopNavigation";
+import { CONST } from "../../utils/constant";
+function AuthTitleTxt({ title, subTitle, customStyle, navigation, children, isBackBtn }) {
   return (
     <SafeAreaView style={styles.rootView}>
-      <View style={{flex:1,marginTop:hp(16)}}>
+      {isBackBtn ? <Pressable onPress={() => { navigation.goBack() }} hitSlop={CONST.hitSlop} >
+        <Image style={{
+          left: '8%',
+          marginTop: hp(2),
+          position: 'absolute',
+          height: hp(3),
+          width: hp(1.5),
+        }} source={icons.back} />
+      </Pressable> : false}
+      <View style={{ flex: 1, marginTop: hp(16) }}>
         <Text style={styles.titleTxt}>{title}</Text>
         <Text style={styles.subTxt}>{subTitle}</Text>
-         {children}
+        {children}
       </View>
     </SafeAreaView>
   );

@@ -2,6 +2,8 @@ import { combineReducers, configureStore, getDefaultMiddleware } from '@reduxjs/
 import autoMergeLevel1 from 'reduxjs-toolkit-persist/lib/stateReconciler/autoMergeLevel1';
 import { loginReducer } from './message';
 import { authReducer } from './AuthSlice';
+import { pushNotificationDataReducer } from './PushNotificationDataSlice';
+import { albumDetailReducer } from './AlbumDetailSlice';
 import { persistReducer, persistStore, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER } from 'reduxjs-toolkit-persist';
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
@@ -15,6 +17,8 @@ const persistConfig = {
 const reducers = combineReducers({
     loginSlice: loginReducer,
     authSlice: authReducer,
+    albumDetailSlice: albumDetailReducer,
+    pushNotificationDataSlice: pushNotificationDataReducer
 });
 //persisted all reducers 
 const _persistedReducer = persistReducer(persistConfig, reducers);
